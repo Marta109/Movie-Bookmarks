@@ -1,0 +1,14 @@
+.main-page-wrapper {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.main-page-container{
+  margin: 0 auto;
+  padding: 10px;
+}

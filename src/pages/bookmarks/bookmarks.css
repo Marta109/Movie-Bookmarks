@@ -1,0 +1,15 @@
+.bookmarks {
+  padding: 10px;
+}
+
+.bookmarks-title {
+  color: #ffc107;
+  text-transform: capitalize;
+}
+
+.no-bookmarks{
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #6c757d;
+}

@@ -1,0 +1,86 @@
+.movie-item {
+  background-color: #2b3035;
+  height: 350px;
+  border-radius: 10px;
+  border: 3px solid #212529;
+  box-shadow: 0 0 15px #0f0f0f;
+}
+
+.movie-item-container {
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  padding: 5px;
+}
+
+.movie-item-img {
+  width: 230px;
+  height: 335px;
+  border-radius: 10px;
+  border: 3px solid #ffc107;
+  box-shadow: 0 0 15px #e4a617;
+}
+
+.movie-item-img img {
+  border-radius: 7px;
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
+
+.movie-item-descr {
+  position: relative;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 2px;
+  background-color: #212529;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  height: 335px;
+}
+
+.movie-item-descr .btn-container {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.movie-item-descr .movie-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.movie-item-descr .card-text {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.movie-item-descr .card-text-secondary {
+  color: #ffffff;
+}
+
+.movie-item-descr .card-title {
+  color: #ffc107;
+}
+
+.movie-item .plot-container {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 648px) {
+  .movie-item .plot-container {
+    -webkit-line-clamp: 6;
+  }
+}
+@media (max-width: 490px) {
+  .movie-item .plot-container {
+    -webkit-line-clamp: 4;
+  }
+}

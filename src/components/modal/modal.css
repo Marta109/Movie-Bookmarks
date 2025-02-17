@@ -1,0 +1,117 @@
+.app-modal .modal {
+  overflow: hidden;
+}
+
+.app-modal .modal-content {
+  min-height: 200px;
+  background-color: #242b34;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ffc107;
+  border: 2px solid #ffc107;
+  width: 700px;
+}
+
+.app-modal .modal-title {
+  font-weight: bold;
+  text-align: center;
+  color: #ffc107;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.app-modal .btn-close {
+  font-size: 1.2rem;
+  background-color: #ffc107;
+}
+
+.app-modal .user-score {
+  color: #ffc107;
+  font-weight: bold;
+  margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.app-modal p {
+  font-size: 20px;
+  color: #f1f5fd;
+  border-radius: 5px;
+}
+
+.btn-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.game-won {
+  text-align: left;
+}
+.modal-btn {
+  height: auto;
+  width: auto;
+  /* padding: 10px; */
+  font-size: 18px;
+}
+
+.modal {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-dialog {
+  max-width: 90%;
+  width: 700px;
+  margin: auto;
+}
+
+@media (max-width: 750px) {
+  .app-modal .modal-content {
+    width: 100%;
+  }
+  .app-modal .modal-title {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 648px) {
+  .app-modal .modal-title {
+    font-size: 1rem !important;
+  }
+  .movie-details-container,
+  .card-body,
+  p {
+    font-size: 0.8rem !important;
+  }
+
+  .movie-details-container .img-fluid {
+    width: 195px !important;
+    height: 195px !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .app-modal .imdb-rating {
+    gap: 5px !important;
+  }
+
+  .app-modal .imdb-item img,
+  .rating-item img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .app-modal .imdb-item .votes {
+    font-size: 1rem !important;
+  }
+
+  .app-modal .more-info button {
+    display: block;
+    width: 180px;
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+}
