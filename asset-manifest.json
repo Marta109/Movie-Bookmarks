@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Movie-Bookmarks/static/css/main.bdc24016.css",
+    "main.js": "/Movie-Bookmarks/static/js/main.c5166a69.js",
+    "index.html": "/Movie-Bookmarks/index.html",
+    "main.bdc24016.css.map": "/Movie-Bookmarks/static/css/main.bdc24016.css.map",
+    "main.c5166a69.js.map": "/Movie-Bookmarks/static/js/main.c5166a69.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bdc24016.css",
+    "static/js/main.c5166a69.js"
+  ]
+}
