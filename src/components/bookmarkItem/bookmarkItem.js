@@ -3,9 +3,9 @@ import getFlags from "../../utils/getFlags";
 import getRatedDetails from "../../utils/getRatedDetails";
 import UrlParams from "../../utils/urlParams/urlParams";
 import Button from "../button/button";
-import "./movieItem.css";
+import "./bookmarkItem.css";
 
-const MovieItem = ({ movie, modal, setMovies }) => {
+const BookmarkItem = ({ movie, modal, setMovies }) => {
   const {
     Title,
     Year,
@@ -33,12 +33,12 @@ const MovieItem = ({ movie, modal, setMovies }) => {
   };
 
   return (
-    <div className="card mb-3 movie-item">
-      <div className="movie-item-container">
-        <div className="movie-item-img">
+    <div className="card mb-3 bookmark-item">
+      <div className="bookmark-item-container">
+        <div className="bookmark-item-img">
           <img src={Poster} className="img-fluid " alt={Title} />
         </div>
-        <div className="movie-item-descr">
+        <div className="bookmark-item-descr">
           <div className="btn-container">
             <Button
               child={<i className="fa-solid fa-bookmark"></i>}
@@ -99,4 +99,4 @@ const MovieItem = ({ movie, modal, setMovies }) => {
   );
 };
 
-export default MovieItem;
+export default BookmarkItem;
