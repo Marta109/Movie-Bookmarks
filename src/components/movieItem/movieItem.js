@@ -34,7 +34,7 @@ const MovieItem = ({ movie, modal, setMovies }) => {
 
   return (
     <div className="card mb-3 movie-item">
-      <div className="movie-item-container" onClick={handelClick}>
+      <div className="movie-item-container">
         <div className="movie-item-img">
           <img src={Poster} className="img-fluid " alt={Title} />
         </div>
