@@ -1,16 +1,16 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/card/card";
 import Modal from "../../components/modal/modal";
 import UrlParams from "../../utils/urlParams/urlParams";
 import Spinner from "../../components/spinner/spinner";
 import NotFound from "../../components/not-found/not-found";
-import "./main-page.css";
 import useLocalStorageState from "../../hooks/use-localStorage-state";
 import Pagination from "../../components/pagination/pagination";
+import "./main-page.css";
 
 const MainPage = ({ data, pagination }) => {
-  const [moviesState, setMovies] = useLocalStorageState([], "movies");
   const [showModal, setShowModal] = useState(false);
+  const [moviesState, setMovies] = useLocalStorageState([], "movies");
   const { loading, movies, error } = data;
   const message = error?.errorMessage || "";
 
@@ -39,7 +39,7 @@ const MainPage = ({ data, pagination }) => {
           />
         ))}
       </div>
-        <Pagination pagination={pagination} />
+      <Pagination pagination={pagination} />
     </div>
   );
 };

@@ -5,8 +5,8 @@ import { useState } from "react";
 import Modal from "../../components/modal/modal";
 
 const Bookmarks = () => {
-  const [moviesState, setMovies] = useLocalStorageState([], "movies");
   const [showModal, setShowModal] = useState(false);
+  const [moviesState, setMovies] = useLocalStorageState([], "movies");
 
   return (
     <div className="bookmarks">
@@ -18,9 +18,9 @@ const Bookmarks = () => {
       {moviesState.length === 0 && (
         <h5 className="no-bookmarks">No bookmarked movies yet.!</h5>
       )}
-      {moviesState.map((movie, i) => (
+      {moviesState.map((movie) => (
         <MovieItem
-          key={i}
+          key={movie.imdbID}
           movie={movie}
           modal={setShowModal}
           setMovies={setMovies}

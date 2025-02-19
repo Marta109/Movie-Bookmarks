@@ -51,11 +51,7 @@ const Modal = ({ showModal, setShowModal }) => {
 
   const toggleFavorite = () => {
     setFavorite(!isFavorite);
-    setMovies((prevMovies) =>
-      prevMovies.some((movie) => movie.imdbID === movieID)
-        ? prevMovies.filter((movie) => movie.imdbID !== movieID)
-        : [...prevMovies, data]
-    );
+    setMovies(data, movieID);
   };
 
   return (

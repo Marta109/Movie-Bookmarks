@@ -29,16 +29,12 @@ const MovieItem = ({ movie, modal, setMovies }) => {
 
   const toggleFavorite = (e) => {
     setFavorite(!isFavorite);
-    setMovies((prevMovies) =>
-      prevMovies.some((movie) => movie.imdbID === imdbID)
-        ? prevMovies.filter((movie) => movie.imdbID !== imdbID)
-        : [...prevMovies, movie]
-    );
+    setMovies(movie, imdbID);
   };
 
   return (
     <div className="card mb-3 movie-item">
-      <div className="movie-item-container">
+      <div className="movie-item-container" onClick={handelClick}>
         <div className="movie-item-img">
           <img src={Poster} className="img-fluid " alt={Title} />
         </div>

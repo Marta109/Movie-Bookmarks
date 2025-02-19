@@ -1,4 +1,4 @@
-const getFlags = (str) => {
+const getFlags = (str = "") => {
   const countries = {
     US: "https://flagcdn.com/w320/us.png",
     UK: "https://flagcdn.com/w320/gb.png",
