@@ -3,6 +3,7 @@ import getRatedDetails from "../../utils/getRatedDetails";
 import Rating from "../ratings/ratings";
 import imdbIcon from "../../assets/images/icon/imdb-icon.png";
 import metacriticIcon from "../../assets/images/icon/metacritic-icon.png";
+import noImg from "../../assets/images/no-img.jpg";
 import "./movieDetails.css";
 
 const MovieDetails = ({ data }) => {
@@ -32,7 +33,11 @@ const MovieDetails = ({ data }) => {
   return (
     <>
       <div className="movie-details-container">
-        <img src={Poster} className="img-fluid" alt="poster"></img>
+        <img
+          src={Poster.length > 7 ? Poster : noImg}
+          className="img-fluid"
+          alt="poster"
+        ></img>
         <table className="table table-dark table-striped-columns table-bordered">
           <tbody>
             <tr>
@@ -86,10 +91,7 @@ const MovieDetails = ({ data }) => {
                 title='"Critics’ score from Metacritic'
               >
                 <div>
-                  <img
-                    src={metacriticIcon}
-                    alt="metacritic icon"
-                  />
+                  <img src={metacriticIcon} alt="metacritic icon" />
                 </div>
                 <div>{Metascore} / 100 </div>
               </div>

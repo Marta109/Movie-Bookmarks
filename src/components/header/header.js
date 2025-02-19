@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../../contexts/appContext";
 import "./header.css";
-const Header = ({ searchFilms, setCurrentPage }) => {
+
+const Header = ({ setCurrentPage }) => {
+  const { searchHandler } = useContext(AppContext);
   const [search, setSearch] = useState("");
   const [activePage, setActivePage] = useState("home");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchFilms(search);
+    searchHandler(search);
     setCurrentPage("home");
     setActivePage("home");
   };
@@ -71,6 +74,7 @@ const Header = ({ searchFilms, setCurrentPage }) => {
                 type="search"
                 placeholder="Search Films"
                 aria-label="Search"
+                value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
               <button className="btn btn-outline" type="submit">

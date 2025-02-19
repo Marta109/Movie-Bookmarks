@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
+import { AppContext } from "../../contexts/appContext";
 import UrlParams from "../../utils/urlParams/urlParams";
 import Button from "../button/button";
 import FilmApi from "../../server/filmApi";
 import MovieDetails from "../movieDetails/movieDetails";
 import Spinner from "../spinner/spinner";
 import "./modal.css";
-import useLocalStorageState from "../../hooks/use-localStorage-state";
 
 const Modal = ({ showModal, setShowModal }) => {
-  const [movieID, setMoviId] = useState(null);
+  const [movieID, setMovieID] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isFavorite, setFavorite] = useState(false);
   const [data, setData] = useState(null);
-  const [moviesState, setMovies] = useLocalStorageState([], "movies");
+  const { state, setFavorites } = useContext(AppContext);
 
   const closeModal = () => {
     document.body.style.overflow = "";
@@ -25,13 +25,14 @@ const Modal = ({ showModal, setShowModal }) => {
   useEffect(() => {
     const movieId = UrlParams.getId();
     setIsOpen(showModal);
+
     if (movieId) {
-      setMoviId(movieId);
+      setMovieID(movieId);
       FilmApi.getMovieById(movieId).then((data) => {
         if (data.success) {
           setData(data.data);
           document.body.style.overflow = "hidden";
-          setFavorite(!!moviesState.filter((m) => m.imdbID === movieId).length);
+          setFavorite(state.favorites.some((m) => m.imdbID === movieId));
         } else {
           console.error(data.message);
           closeModal();
@@ -40,18 +41,18 @@ const Modal = ({ showModal, setShowModal }) => {
     } else {
       closeModal();
     }
-  }, [showModal]);
+  }, [showModal, state.favorites]);
 
   const closeModalOnBackdropClick = (e) => {
     if (e.target.classList.contains("modal")) {
       closeModal();
-      setMoviId(null);
+      setMovieID(null);
     }
   };
 
   const toggleFavorite = () => {
-    setFavorite(!isFavorite);
-    setMovies(data, movieID);
+    setFavorites(data, movieID);
+    setFavorite((prev) => !prev);
   };
 
   return (
@@ -86,7 +87,7 @@ const Modal = ({ showModal, setShowModal }) => {
                   <Button
                     child={<i className="fa-solid fa-bookmark"></i>}
                     type="button"
-                    classes={`modal-btn ${isFavorite && "favorite"}`}
+                    classes={`modal-btn ${isFavorite ? "favorite" : ""}`}
                     title="save"
                     onClick={toggleFavorite}
                   />

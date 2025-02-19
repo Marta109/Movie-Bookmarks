@@ -11,33 +11,27 @@ const useLocalStorageState = (initialState = [], key = "movies") => {
     localStorage.setItem(key, JSON.stringify(value));
   }, [value, key]);
 
-  const checkSetValue = (data, id) => {
+  const updateFavorites = (data, id) => {
     const isDelete = value.some((movie) => movie.imdbID === id);
 
     if (isDelete) {
-      setValue((prevMovies) => {
-        return prevMovies.filter((movie) => movie.imdbID !== id);
-      });
-      return;
+      setValue((prevMovies) =>
+        prevMovies.filter((movie) => movie.imdbID !== id)
+      );
     } else {
       if (data.Country) {
-        setValue((prevMovies) => {
-          return [...prevMovies, data];
-        });
+        setValue((prevMovies) => [...prevMovies, data]);
       } else {
         FilmApi.getMovieById(id).then((movieData) => {
           if (movieData.success) {
-            setValue((prevMovies) => {
-              return [...prevMovies, movieData.data];
-            });
+            setValue((prevMovies) => [...prevMovies, movieData.data]);
           }
         });
-        return;
       }
     }
   };
 
-  return [value, checkSetValue];
+  return [value, updateFavorites];
 };
 
 export default useLocalStorageState;
