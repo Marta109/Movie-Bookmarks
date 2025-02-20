@@ -59,12 +59,23 @@ const Header = ({ setCurrentPage }) => {
               <li className="nav-item">
                 <a
                   className={`nav-link ${
-                    activePage !== "home" ? "active" : ""
+                    activePage === "bookmarks" ? "active" : ""
                   }`}
                   href="#"
                   onClick={() => handleClick("bookmarks")}
                 >
                   Bookmarks
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={`nav-link ${
+                    activePage === "quiz" ? "active" : ""
+                  }`}
+                  href="#"
+                  onClick={() => handleClick("quiz")}
+                >
+                  Quiz
                 </a>
               </li>
             </ul>

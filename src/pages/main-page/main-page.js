@@ -5,14 +5,12 @@ import UrlParams from "../../utils/urlParams/urlParams";
 import Spinner from "../../components/spinner/spinner";
 import NotFound from "../../components/not-found/not-found";
 import { AppContext } from "../../contexts/appContext";
-// import useLocalStorageState from "../../hooks/use-localStorage-state";
 import Pagination from "../../components/pagination/pagination";
 import "./main-page.css";
 
 const MainPage = () => {
   const { state } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
-  // const [moviesState, setMovies] = useLocalStorageState([], "movies");
   const { loading, data, error } = state;
   console.log(data);
   const message = error || "";
@@ -36,8 +34,6 @@ const MainPage = () => {
           <Card
             key={movie.imdbID}
             data={movie}
-            // setMovies={setMovies}
-            // moviesState={moviesState}
             setShowModal={setShowModal}
           />
         ))}
