@@ -1,49 +1,49 @@
-// import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../../contexts/appContext";
 import UrlParams from "../../utils/urlParams/urlParams";
 import Button from "../button/button";
-// import useLocalStorageState from "../../hooks/use-localStorage-state";
+import noImg from "../../assets/images/no-img.jpg";
 import "./card.css";
 
-const Card = ({ data, modal, setMovies, moviesState }) => {
-  // const [isFavorite, setIsFavorite] = useState(false);
+const Card = ({ data, setShowModal }) => {
+  const { state, setFavorites } = useContext(AppContext);
   const { Poster, Title, Year, imdbID } = data;
 
-  // useEffect(() => {
-  //   setIsFavorite(!!moviesState.filter((m) => m.imdbID === imdbID).length);
-  // }, []);
-
-  // useEffect(() => {
-  //   setIsFavorite(!!moviesState.filter((m) => m.imdbID === imdbID).length);
-  // }, [moviesState]);
+  const isFavorite = state.favorites.some((movie) => movie.imdbID === imdbID);
 
   const handleClick = (e) => {
+    if (
+      e.target.classList.contains("modal-btn") ||
+      e.target.classList.contains("fa-solid")
+    ) {
+      return;
+    }
     UrlParams.addId(imdbID);
-    modal(true);
+    setShowModal(true);
   };
 
-  // const toggleFavorite = () => {
-  //   setIsFavorite(!isFavorite);
-  //   setMovies((prevMovies) =>
-  //     prevMovies.some((movie) => movie.imdbID === imdbID)
-  //       ? prevMovies.filter((movie) => movie.imdbID !== imdbID)
-  //       : [...prevMovies, data]
-  //   );
-  // };
+  const toggleFavorite = () => {
+    setFavorites(data, imdbID);
+  };
 
   return (
     <div className="card-item" onClick={handleClick}>
       <div className="card">
-        <img src={Poster} className="card-img-top" alt={Title} />
+        <img
+          src={Poster.length > 7 ? Poster : noImg}
+          className="card-img-top"
+          alt={Title}
+        />
         <div className="card-body">
           <h5 className="card-title">{Title}</h5>
           <p className="card-text">Year: {Year}</p>
-          {/* <Button
+          <Button
             child={<i className="fa-solid fa-bookmark"></i>}
             type="button"
-            classes={`modal-btn ${isFavorite && "favorite"}`}
+            classes={`modal-btn ${isFavorite ? "favorite" : ""}`}
             title="save"
             onClick={toggleFavorite}
-          /> */}
+          />
           <Button
             child="more"
             type="button"

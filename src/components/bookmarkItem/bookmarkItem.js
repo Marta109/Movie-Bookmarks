@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../../contexts/appContext";
 import getFlags from "../../utils/getFlags";
 import getRatedDetails from "../../utils/getRatedDetails";
 import UrlParams from "../../utils/urlParams/urlParams";
 import Button from "../button/button";
-import "./movieItem.css";
+import noImg from "../../assets/images/no-img.jpg";
+import "./bookmarkItem.css";
 
-const MovieItem = ({ movie, modal, setMovies }) => {
+const BookmarkItem = ({ movie, modal, setFavorites }) => {
   const {
+    imdbID,
     Title,
     Year,
     Country,
@@ -17,44 +20,46 @@ const MovieItem = ({ movie, modal, setMovies }) => {
     Rated,
     Runtime,
     Released,
-    imdbID,
   } = movie;
+  const { state } = useContext(AppContext);
 
-  const [isFavorite, setFavorite] = useState(true);
+  const [isFavorite, setFavorite] = useState(
+    state.favorites.some((m) => m.imdbID === imdbID)
+  );
 
-  const handelClick = () => {
+  const handleClick = () => {
     UrlParams.addId(imdbID);
     modal(true);
   };
 
-  const toggleFavorite = (e) => {
-    setFavorite(!isFavorite);
-    setMovies((prevMovies) =>
-      prevMovies.some((movie) => movie.imdbID === imdbID)
-        ? prevMovies.filter((movie) => movie.imdbID !== imdbID)
-        : [...prevMovies, movie]
-    );
+  const toggleFavorite = () => {
+    setFavorites(movie, imdbID);
+    setFavorite((prev) => !prev);
   };
 
   return (
-    <div className="card mb-3 movie-item">
-      <div className="movie-item-container">
-        <div className="movie-item-img">
-          <img src={Poster} className="img-fluid " alt={Title} />
+    <div className="card mb-3 bookmark-item">
+      <div className="bookmark-item-container">
+        <div className="bookmark-item-img">
+          <img
+            src={Poster.length > 7 ? Poster : noImg}
+            className="img-fluid"
+            alt={Title}
+          />
         </div>
-        <div className="movie-item-descr">
+        <div className="bookmark-item-descr">
           <div className="btn-container">
             <Button
               child={<i className="fa-solid fa-bookmark"></i>}
               type="button"
-              classes={`modal-btn ${isFavorite && "favorite"}`}
+              classes={`modal-btn ${isFavorite ? "favorite" : ""}`}
               title="save"
               onClick={toggleFavorite}
             />
             <Button
               child="more"
               type="button"
-              onClick={handelClick}
+              onClick={handleClick}
               classes="modal-btn"
             />
           </div>
@@ -62,26 +67,24 @@ const MovieItem = ({ movie, modal, setMovies }) => {
             <h5 className="card-title">{Title}</h5>
             <div className="movie-detail">
               <div className="card-text">Year:</div>
-              <div className="card-text-secondary"> {Year}</div>
+              <div className="card-text-secondary">{Year}</div>
               <span></span>
               <div className="card-text">Runtime:</div>
-              <div className="card-text-secondary"> {Runtime}</div>
+              <div className="card-text-secondary">{Runtime}</div>
             </div>
             <div className="movie-detail">
               <div className="card-text">Released:</div>
-              <div className="card-text-secondary"> {Released}</div>
+              <div className="card-text-secondary">{Released}</div>
             </div>
             <div className="movie-detail">
               <div className="card-text">Rated:</div>
-
               <div className="card-text-secondary">
                 {getRatedDetails(Rated, "divElem")}
               </div>
             </div>
-
             <div className="movie-detail">
               <div className="card-text">Country:</div>
-              <div className="card-text-secondary"> {getFlags(Country)}</div>
+              <div className="card-text-secondary">{getFlags(Country)}</div>
             </div>
             <div className="movie-detail">
               <div className="card-text">Language:</div>
@@ -89,11 +92,11 @@ const MovieItem = ({ movie, modal, setMovies }) => {
             </div>
             <div className="movie-detail">
               <div className="card-text">Genre:</div>
-              <div className="card-text-secondary"> {Genre}</div>
+              <div className="card-text-secondary">{Genre}</div>
             </div>
             <hr />
             <div className="plot-container">
-              <div className="card-text"> The Plot</div>
+              <div className="card-text">The Plot</div>
               <div className="card-text-secondary">{Plot}</div>
             </div>
           </div>
@@ -103,4 +106,4 @@ const MovieItem = ({ movie, modal, setMovies }) => {
   );
 };
 
-export default MovieItem;
+export default BookmarkItem;

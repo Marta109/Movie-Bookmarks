@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../../contexts/appContext";
 import "./header.css";
-const Header = ({ searchFilms, setCurrentPage }) => {
+
+const Header = ({ setCurrentPage }) => {
+  const { searchHandler } = useContext(AppContext);
   const [search, setSearch] = useState("");
   const [activePage, setActivePage] = useState("home");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchFilms(search);
+    searchHandler(search);
     setCurrentPage("home");
     setActivePage("home");
   };
@@ -21,7 +24,11 @@ const Header = ({ searchFilms, setCurrentPage }) => {
     <div className="app-header">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a
+            className="navbar-brand"
+            href="#"
+            onClick={() => handleClick("home")}
+          >
             Movie Bookmarks
           </a>
           <button
@@ -52,12 +59,23 @@ const Header = ({ searchFilms, setCurrentPage }) => {
               <li className="nav-item">
                 <a
                   className={`nav-link ${
-                    activePage !== "home" ? "active" : ""
+                    activePage === "bookmarks" ? "active" : ""
                   }`}
                   href="#"
                   onClick={() => handleClick("bookmarks")}
                 >
                   Bookmarks
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className={`nav-link ${
+                    activePage === "quiz" ? "active" : ""
+                  }`}
+                  href="#"
+                  onClick={() => handleClick("quiz")}
+                >
+                  Quiz
                 </a>
               </li>
             </ul>
@@ -67,6 +85,7 @@ const Header = ({ searchFilms, setCurrentPage }) => {
                 type="search"
                 placeholder="Search Films"
                 aria-label="Search"
+                value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
               <button className="btn btn-outline" type="submit">

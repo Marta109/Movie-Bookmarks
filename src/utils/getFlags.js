@@ -1,4 +1,4 @@
-const getFlags = (str) => {
+const getFlags = (str = "") => {
   const countries = {
     US: "https://flagcdn.com/w320/us.png",
     UK: "https://flagcdn.com/w320/gb.png",
@@ -57,6 +57,10 @@ const getFlags = (str) => {
     Denmark: "https://flagcdn.com/w320/dk.png",
     Sweden: "https://flagcdn.com/w320/se.png",
     Norway: " https://flagcdn.com/w320/no.png",
+    "Israel": "https://flagcdn.com/w320/il.png",
+    Palestine: "https://flagcdn.com/w320/ps.png",
+    Jordan: "https://flagcdn.com/w320/jo.png",
+
   };
 
   return str.split(",").map((country, index) => {

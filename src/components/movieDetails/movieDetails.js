@@ -1,6 +1,9 @@
 import getFlags from "../../utils/getFlags";
 import getRatedDetails from "../../utils/getRatedDetails";
 import Rating from "../ratings/ratings";
+import imdbIcon from "../../assets/images/icon/imdb-icon.png";
+import metacriticIcon from "../../assets/images/icon/metacritic-icon.png";
+import noImg from "../../assets/images/no-img.jpg";
 import "./movieDetails.css";
 
 const MovieDetails = ({ data }) => {
@@ -30,7 +33,11 @@ const MovieDetails = ({ data }) => {
   return (
     <>
       <div className="movie-details-container">
-        <img src={Poster} className="img-fluid" alt="poster"></img>
+        <img
+          src={Poster.length > 7 ? Poster : noImg}
+          className="img-fluid"
+          alt="poster"
+        ></img>
         <table className="table table-dark table-striped-columns table-bordered">
           <tbody>
             <tr>
@@ -71,10 +78,7 @@ const MovieDetails = ({ data }) => {
             <h6> Ratings: IMDb - Metascore</h6>
             <div className="imdb-rating">
               <div className="imdb-item" title="IMDb rating">
-                <img
-                  src="https://img.icons8.com/?size=100&id=12246&format=png&color=000000"
-                  alt="imdb-icon"
-                />
+                <img src={imdbIcon} alt="imdb-icon" />
                 <div>{imdbRating} / 10</div>
               </div>
               <div className="imdb-item" title="Total IMDb votes.">
@@ -87,10 +91,7 @@ const MovieDetails = ({ data }) => {
                 title='"Critics’ score from Metacritic'
               >
                 <div>
-                  <img
-                    src="https://img.icons8.com/?size=100&id=YaSzxFsOJh3a&format=png&color=000000"
-                    alt="voice icon"
-                  />
+                  <img src={metacriticIcon} alt="metacritic icon" />
                 </div>
                 <div>{Metascore} / 100 </div>
               </div>

@@ -1,29 +1,35 @@
-import useLocalStorageState from "../../hooks/use-localStorage-state";
-import MovieItem from "../../components/movieItem/movieItem";
-import "./bookmarks.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../../contexts/appContext";
+import BookmarkItem from "../../components/bookmarkItem/bookmarkItem";
 import Modal from "../../components/modal/modal";
+import notFound from "../../assets/images/notFound.webp";
+import "./bookmarks.css";
 
 const Bookmarks = () => {
-  const [moviesState, setMovies] = useLocalStorageState([], "movies");
   const [showModal, setShowModal] = useState(false);
+  const { state, setFavorites } = useContext(AppContext);
 
   return (
     <div className="bookmarks">
-      <h2 className="bookmarks-title">
-        {" "}
-        my Bookmarks ( {moviesState.length} )
-      </h2>
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
-      {moviesState.length === 0 && (
-        <h5 className="no-bookmarks">No bookmarked movies yet.!</h5>
+      {state.favorites.length === 0 ? (
+        <>
+          <h5 className="no-bookmarks">No bookmarked movies yet.!</h5>
+          <div className="no-bookmarks-img">
+            <img src={notFound} alt="No film" />
+          </div>
+        </>
+      ) : (
+        <h2 className="bookmarks-title">
+          my Bookmarks ( {state.favorites.length} )
+        </h2>
       )}
-      {moviesState.map((movie, i) => (
-        <MovieItem
-          key={i}
+      {state.favorites.map((movie) => (
+        <BookmarkItem
+          key={movie.imdbID}
           movie={movie}
           modal={setShowModal}
-          setMovies={setMovies}
+          setFavorites={setFavorites}
         />
       ))}
     </div>

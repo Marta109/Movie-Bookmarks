@@ -1,4 +1,4 @@
-.movie-item {
+.bookmark-item {
   background-color: #2b3035;
   height: 350px;
   border-radius: 10px;
@@ -6,14 +6,14 @@
   box-shadow: 0 0 15px #0f0f0f;
 }
 
-.movie-item-container {
+.bookmark-item-container {
   display: flex;
   justify-content: start;
   gap: 20px;
   padding: 5px;
 }
 
-.movie-item-img {
+.bookmark-item-img {
   width: 230px;
   height: 335px;
   border-radius: 10px;
@@ -21,14 +21,14 @@
   box-shadow: 0 0 15px #e4a617;
 }
 
-.movie-item-img img {
+.bookmark-item-img img {
   border-radius: 7px;
   object-fit: fill;
   width: 100%;
   height: 100%;
 }
 
-.movie-item-descr {
+.bookmark-item-descr {
   position: relative;
   text-align: left;
   color: #ffffff;
@@ -40,7 +40,7 @@
   height: 335px;
 }
 
-.movie-item-descr .btn-container {
+.bookmark-item-descr .btn-container {
   position: absolute;
   right: 10px;
   display: flex;
@@ -48,25 +48,25 @@
   gap: 10px;
 }
 
-.movie-item-descr .movie-detail {
+.bookmark-item-descr .movie-detail {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
-.movie-item-descr .card-text {
+.bookmark-item-descr .card-text {
   color: #ffffff;
   font-weight: bold;
 }
 
-.movie-item-descr .card-text-secondary {
+.bookmark-item-descr .card-text-secondary {
   color: #ffffff;
 }
 
-.movie-item-descr .card-title {
+.bookmark-item-descr .card-title {
   color: #ffc107;
 }
 
-.movie-item .plot-container {
+.bookmark-item .plot-container {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
@@ -75,12 +75,12 @@
 }
 
 @media (max-width: 648px) {
-  .movie-item .plot-container {
+  .bookmark-item .plot-container {
     -webkit-line-clamp: 6;
   }
 }
 @media (max-width: 490px) {
-  .movie-item .plot-container {
+  .bookmark-item .plot-container {
     -webkit-line-clamp: 4;
   }
 }

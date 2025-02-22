@@ -1,18 +1,19 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Card from "../../components/card/card";
 import Modal from "../../components/modal/modal";
 import UrlParams from "../../utils/urlParams/urlParams";
 import Spinner from "../../components/spinner/spinner";
 import NotFound from "../../components/not-found/not-found";
-import "./main-page.css";
-import useLocalStorageState from "../../hooks/use-localStorage-state";
+import { AppContext } from "../../contexts/appContext";
 import Pagination from "../../components/pagination/pagination";
+import "./main-page.css";
 
-const MainPage = ({ data, pagination }) => {
-  const [moviesState, setMovies] = useLocalStorageState([], "movies");
+const MainPage = () => {
+  const { state } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
-  const { loading, movies, error } = data;
-  const message = error?.errorMessage || "";
+  const { loading, data, error } = state;
+  console.log(data);
+  const message = error || "";
 
   useEffect(() => {
     const movieId = UrlParams.getId();
@@ -22,24 +23,22 @@ const MainPage = ({ data, pagination }) => {
   if (loading) {
     return <Spinner />;
   } else if (message) {
-    return <NotFound error={error} />;
+    return <NotFound />;
   }
 
   return (
     <div className="main-page-container">
       {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
       <div className="main-page-wrapper">
-        {movies.map((movie) => (
+        {data.map((movie) => (
           <Card
             key={movie.imdbID}
             data={movie}
-            modal={setShowModal}
-            setMovies={setMovies}
-            moviesState={moviesState}
+            setShowModal={setShowModal}
           />
         ))}
       </div>
-        <Pagination pagination={pagination} />
+      <Pagination />
     </div>
   );
 };
