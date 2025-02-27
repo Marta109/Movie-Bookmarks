@@ -1,0 +1,18 @@
+.quiz {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;}
+
+.quiz-title {
+  color: #ffc107;
+  text-transform: capitalize;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 708px) {
+  .quiz {
+    margin-bottom: 20px;
+    overflow: auto;
+  }
+}
