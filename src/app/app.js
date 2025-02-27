@@ -3,8 +3,8 @@ import { AppProvider } from "../contexts/appContext";
 import MainPage from "../pages/main-page/main-page";
 import Header from "../components/header/header";
 import Bookmarks from "../pages/bookmarks/bookmarks";
-import "./app.css";
 import Quiz from "../pages/quiz/quiz";
+import "./app.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");

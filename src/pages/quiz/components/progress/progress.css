@@ -1,0 +1,15 @@
+.progress-bar .progress-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: aliceblue;
+}
+
+.progress-bar .points {
+  color:goldenrod;
+}
+
+.progress{
+  margin-bottom: 10px;
+}

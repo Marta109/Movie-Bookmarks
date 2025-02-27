@@ -1,11 +1,14 @@
-import './quiz.css'
-
-const Quiz=()=>{
-    return (
-        <div className="quiz">
-            <h1>Welcome to the Quiz!</h1>
-        </div>
-    )
-}
+import { QuizProvider } from "./context/quizContext";
+import QuizApp from "./components/quizApp/quizApp";
+import "./quiz.css";
+const Quiz = () => {
+  return (
+    <>
+      <QuizProvider>
+        <QuizApp />
+      </QuizProvider>
+    </>
+  );
+};
 
 export default Quiz;

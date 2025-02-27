@@ -8,8 +8,6 @@ const Pagination = () => {
   const { currentPage, total, limit } = state;
 
   const totalPages = Math.ceil(total / limit);
-  console.log(currentPage);
-  console.log(totalPages);
 
   const [pagesToShow, setPagesToShow] = useState([]);
 

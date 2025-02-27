@@ -1,6 +1,7 @@
 class FilmApi {
-  static apiKey = "3f682b8f";
+  static apiKey = process.env.REACT_APP_FILM_API_KEY;
   static baseUrl = "https://www.omdbapi.com/";
+
   static async getMoviesBySearch(query, page = 1) {
     try {
       const response = await fetch(

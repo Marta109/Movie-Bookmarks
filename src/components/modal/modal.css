@@ -89,8 +89,8 @@
   }
 
   .movie-details-container .img-fluid {
-    width: 195px !important;
-    height: 195px !important;
+    width: 250px !important;
+    height: 250px !important;
   }
 }
 
@@ -113,5 +113,22 @@
     width: 180px;
     font-size: 1rem;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 490px) {
+  .app-modal .movie-details-container {
+    flex-direction: column;
+  }
+
+  .movie-details-container .img-fluid {
+    width: 100% !important;
+    height: 400px !important;
+    object-fit: fill;
+  }
+
+  .app-modal .imdb-rating {
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 }
