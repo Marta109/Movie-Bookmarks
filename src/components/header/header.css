@@ -68,13 +68,21 @@
 }
 
 .app-header .navbar-toggler[aria-expanded="true"] {
-  background-color: #e28c3b; 
+  background-color: #e28c3b;
   border: 3px solid #ffcc00;
   box-shadow: 0 0 10px #ffcc00;
 }
 
 .app-header .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  filter: brightness(0) invert(1); 
+  filter: brightness(0) invert(1);
 }
 
+#navbarScroll {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
 
+#navbarScroll.show {
+  max-height: 500px;
+}

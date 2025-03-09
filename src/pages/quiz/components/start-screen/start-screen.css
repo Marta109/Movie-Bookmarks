@@ -18,3 +18,9 @@
   font-size: 19px;
   font-style: italic;
 }
+
+@media (max-width: 420px) {
+  .start-screen {
+    height: 280px;
+  }
+}

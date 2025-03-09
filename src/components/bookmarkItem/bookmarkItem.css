@@ -74,14 +74,18 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: 648px) {
-  .bookmark-item .plot-container {
-    -webkit-line-clamp: 6;
-  }
-}
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .bookmark-item-descr .btn-container {
     position: relative;
+  }
+  .bookmark-item .plot-container{
+    -webkit-line-clamp: 3;
+  }
+
+  @media (max-width: 648px) {
+    .bookmark-item .plot-container {
+      -webkit-line-clamp: 5;
+    }
   }
 
   .bookmark-item-descr .btn-container button {
@@ -96,11 +100,11 @@
 
 @media (max-width: 570px) {
   .bookmark-item .plot-container {
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 530px) {
   .bookmark-item {
     height: 800px;
   }
@@ -116,7 +120,7 @@
     margin: 0 auto;
   }
   .bookmark-item .plot-container {
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
   }
 
   .bookmark-item-descr .btn-container button {

@@ -6,6 +6,7 @@ const Header = ({ setCurrentPage }) => {
   const { searchHandler } = useContext(AppContext);
   const [search, setSearch] = useState("");
   const [activePage, setActivePage] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,9 +16,15 @@ const Header = ({ setCurrentPage }) => {
   };
 
   const handleClick = (page) => {
-    if (page === activePage) return;
-    setActivePage(page);
-    setCurrentPage(page);
+    if (page !== activePage) {
+      setActivePage(page);
+      setCurrentPage(page);
+    }
+    const navbar = document.getElementById("navbarScroll");
+    if (navbar) {
+      navbar.classList.remove("show");
+    }
+    setMenuOpen(false);
   };
 
   return (
@@ -37,8 +44,9 @@ const Header = ({ setCurrentPage }) => {
             data-bs-toggle="collapse"
             data-bs-target="#navbarScroll"
             aria-controls="navbarScroll"
-            aria-expanded="false"
+            aria-expanded={menuOpen}
             aria-label="Toggle navigation"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>

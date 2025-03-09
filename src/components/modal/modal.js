@@ -89,7 +89,7 @@ const Modal = ({ showModal, setShowModal }) => {
                 </div>
                 <div className="modal-footer">
                   <Button
-                    child={<i class="fa-solid fa-play"></i>}
+                    child={<i className="fa-solid fa-play"></i>}
                     type="button"
                     classes="modal-btn watch"
                     title="Watch on IMDB"

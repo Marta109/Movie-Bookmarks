@@ -37,6 +37,10 @@ const BookmarkItem = ({ movie, modal, setFavorites }) => {
     setFavorite((prev) => !prev);
   };
 
+  const handleWatch = () => {
+    window.open(`https://www.imdb.com/title/${imdbID}`, "_blank");
+  };
+
   return (
     <div className="card mb-3 bookmark-item">
       <div className="bookmark-item-container">
@@ -49,6 +53,13 @@ const BookmarkItem = ({ movie, modal, setFavorites }) => {
         </div>
         <div className="bookmark-item-descr">
           <div className="btn-container">
+            <Button
+              child={<i className="fa-solid fa-play"></i>}
+              type="button"
+              classes="modal-btn watch"
+              title="Watch on IMDB"
+              onClick={handleWatch}
+            />
             <Button
               child={<i className="fa-solid fa-bookmark"></i>}
               type="button"

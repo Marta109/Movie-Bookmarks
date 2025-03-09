@@ -41,7 +41,7 @@ const Card = ({ data, setShowModal }) => {
           <h5 className="card-title">{Title}</h5>
           <p className="card-text">Year: {Year}</p>
           <Button
-            child={<i class="fa-solid fa-play"></i>}
+            child={<i className="fa-solid fa-play"></i>}
             type="button"
             classes="modal-btn watch"
             title="Watch on IMDB"

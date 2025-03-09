@@ -2,7 +2,8 @@
   padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;}
+  align-items: center;
+}
 
 .quiz-title {
   color: #ffc107;
