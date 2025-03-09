@@ -52,6 +52,11 @@
   font-size: 18px;
 }
 
+
+.modal-btn.watch i {
+  color: #ed5a00;
+}
+
 .modal {
   display: flex !important;
   align-items: center;

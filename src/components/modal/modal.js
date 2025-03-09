@@ -55,6 +55,10 @@ const Modal = ({ showModal, setShowModal }) => {
     setFavorite((prev) => !prev);
   };
 
+  const handleWatch = () => {
+    window.open(`https://www.imdb.com/title/${movieID}`, "_blank");
+  };
+
   return (
     <div className="app-modal">
       <div
@@ -84,6 +88,13 @@ const Modal = ({ showModal, setShowModal }) => {
                   <MovieDetails data={data} />
                 </div>
                 <div className="modal-footer">
+                  <Button
+                    child={<i class="fa-solid fa-play"></i>}
+                    type="button"
+                    classes="modal-btn watch"
+                    title="Watch on IMDB"
+                    onClick={handleWatch}
+                  />
                   <Button
                     child={<i className="fa-solid fa-bookmark"></i>}
                     type="button"

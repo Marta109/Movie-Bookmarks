@@ -25,6 +25,9 @@ const Card = ({ data, setShowModal }) => {
   const toggleFavorite = () => {
     setFavorites(data, imdbID);
   };
+  const handleWatch = () => {
+    window.open(`https://www.imdb.com/title/${imdbID}`, "_blank");
+  };
 
   return (
     <div className="card-item" onClick={handleClick}>
@@ -37,6 +40,13 @@ const Card = ({ data, setShowModal }) => {
         <div className="card-body">
           <h5 className="card-title">{Title}</h5>
           <p className="card-text">Year: {Year}</p>
+          <Button
+            child={<i class="fa-solid fa-play"></i>}
+            type="button"
+            classes="modal-btn watch"
+            title="Watch on IMDB"
+            onClick={handleWatch}
+          />
           <Button
             child={<i className="fa-solid fa-bookmark"></i>}
             type="button"
