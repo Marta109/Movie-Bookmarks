@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/Movie-Bookmarks/static/css/main.ff374214.css",
-    "main.js": "/Movie-Bookmarks/static/js/main.20687679.js",
+    "main.css": "/Movie-Bookmarks/static/css/main.f24e7721.css",
+    "main.js": "/Movie-Bookmarks/static/js/main.e8065a1f.js",
     "static/media/notFound.webp": "/Movie-Bookmarks/static/media/notFound.6fe451b88ebfaa23298b.webp",
-    "static/media/winSound.mp3": "/Movie-Bookmarks/static/media/winSound.90ae151047058805a822.mp3",
+    "static/media/winSound3.mp3": "/Movie-Bookmarks/static/media/winSound3.b171a08d94c403375fd7.mp3",
+    "static/media/winSound1.mp3": "/Movie-Bookmarks/static/media/winSound1.90ae151047058805a822.mp3",
+    "static/media/winSound2.mp3": "/Movie-Bookmarks/static/media/winSound2.d635dfce0d908b66cc52.mp3",
+    "static/media/winSound4.mp3": "/Movie-Bookmarks/static/media/winSound4.e97ebb66906ae44ed70e.mp3",
+    "static/media/winSound5.mp3": "/Movie-Bookmarks/static/media/winSound5.2f1074e34d7d0f0b4972.mp3",
+    "static/media/incorrect.mp3": "/Movie-Bookmarks/static/media/incorrect.6b2eb1aa1ffcec110107.mp3",
+    "static/media/correct.mp3": "/Movie-Bookmarks/static/media/correct.ed3894f877249fd39ddf.mp3",
     "index.html": "/Movie-Bookmarks/index.html",
-    "main.ff374214.css.map": "/Movie-Bookmarks/static/css/main.ff374214.css.map",
-    "main.20687679.js.map": "/Movie-Bookmarks/static/js/main.20687679.js.map"
+    "main.f24e7721.css.map": "/Movie-Bookmarks/static/css/main.f24e7721.css.map",
+    "main.e8065a1f.js.map": "/Movie-Bookmarks/static/js/main.e8065a1f.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff374214.css",
-    "static/js/main.20687679.js"
+    "static/css/main.f24e7721.css",
+    "static/js/main.e8065a1f.js"
   ]
 }
