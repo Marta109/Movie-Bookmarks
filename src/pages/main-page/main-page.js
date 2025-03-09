@@ -12,7 +12,6 @@ const MainPage = () => {
   const { state } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
   const { loading, data, error } = state;
-  console.log(data);
   const message = error || "";
 
   useEffect(() => {

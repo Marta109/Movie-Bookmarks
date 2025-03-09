@@ -1,9 +1,10 @@
 class QuizApi {
-  static baseUrl = "http://localhost:3001";
+  static baseUrl = "https://simple-blog-api-red.vercel.app/quiz";
+  static limit = 30;
 
   static async getQuestions() {
     try {
-      const response = await fetch(`${QuizApi.baseUrl}/questions`);
+      const response = await fetch(`${QuizApi.baseUrl}?limit=${QuizApi.limit}`);
       const data = await response.json();
       return {
         data,

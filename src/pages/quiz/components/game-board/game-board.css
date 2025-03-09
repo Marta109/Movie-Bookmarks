@@ -1,0 +1,10 @@
+.game-board {
+  background-color: #2b3035;
+  border-radius: 10px;
+  border: 3px solid #ffc107;
+  box-shadow: 0 0 5px #e4a617;
+  padding: 20px;
+  width: 700px;
+  height: 100%;
+  overflow: auto;
+}

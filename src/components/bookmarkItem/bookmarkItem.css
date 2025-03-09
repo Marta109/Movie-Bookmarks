@@ -14,7 +14,7 @@
 }
 
 .bookmark-item-img {
-  width: 230px;
+  width: 350px;
   height: 335px;
   border-radius: 10px;
   border: 3px solid #ffc107;
@@ -79,8 +79,56 @@
     -webkit-line-clamp: 6;
   }
 }
-@media (max-width: 490px) {
+@media (max-width: 600px) {
+  .bookmark-item-descr .btn-container {
+    position: relative;
+  }
+
+  .bookmark-item-descr .btn-container button {
+    height: 40px;
+    padding: 2px 10px;
+  }
+
+  .card-body {
+    padding-top: 2px;
+  }
+}
+
+@media (max-width: 570px) {
   .bookmark-item .plot-container {
     -webkit-line-clamp: 4;
+  }
+}
+
+@media (max-width: 500px) {
+  .bookmark-item {
+    height: 800px;
+  }
+  .bookmark-item-container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .bookmark-item-img {
+    width: 95%;
+    height: 400px;
+    margin: 0 auto;
+  }
+  .bookmark-item .plot-container {
+    -webkit-line-clamp: 4;
+  }
+
+  .bookmark-item-descr .btn-container button {
+    height: 45px;
+    /* padding: 2px 10px; */
+  }
+
+  .bookmark-item-descr {
+    height: 350px;
+  }
+
+  .bookmark-item .plot-container {
+    -webkit-line-clamp: 5;
   }
 }

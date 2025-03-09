@@ -1,0 +1,20 @@
+.start-screen {
+  width: 550px;
+  height: 250px;
+  background-color: #212529;
+  border-radius: 10px;
+  border: 3px solid #ffc107;
+  box-shadow: 0 0 15px #e4a617;
+  padding: 20px;
+}
+
+.quiz-title {
+  margin-top: 20px;
+  color: #ffc107;
+  text-transform: capitalize;
+}
+
+.quiz-title h3 {
+  font-size: 19px;
+  font-style: italic;
+}
