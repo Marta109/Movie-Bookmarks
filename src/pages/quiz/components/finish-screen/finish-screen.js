@@ -9,6 +9,8 @@ import winSound3 from "../../../../assets/sounds/winSound3.mp3";
 import winSound4 from "../../../../assets/sounds/winSound4.mp3";
 import winSound5 from "../../../../assets/sounds/winSound5.mp3";
 import "./finish-screen.css";
+import PlayersTable from "../players-table/players-table";
+import { setPlayersData } from "../../../../utils/playersData";
 
 let winSound = "";
 
@@ -39,7 +41,8 @@ const getEmojiIcon = (percentage) => {
 };
 
 const FinishScreen = () => {
-  const { points, maxPossiblePoints, dispatch } = useContext(QuizContext);
+  const { points, maxPossiblePoints, userName, time, dispatch } =
+    useContext(QuizContext);
   const [audio, setAudio] = useState(null);
 
   const emoji = useMemo(() => {
@@ -67,6 +70,12 @@ const FinishScreen = () => {
     }
   };
 
+  setPlayersData({
+    userName,
+    time,
+    score: `${points} / ${maxPossiblePoints}`,
+  });
+
   return (
     <div className="finish-screen">
       <Confetti />
@@ -75,6 +84,7 @@ const FinishScreen = () => {
       <div>
         <span>{emoji}</span> Your Score is {points} out of {maxPossiblePoints}
       </div>
+      <div>Time Used [ {time} ] </div>
 
       <Button
         child="Play Again"
@@ -83,6 +93,7 @@ const FinishScreen = () => {
           stopMusic();
         }}
       ></Button>
+      <PlayersTable />
     </div>
   );
 };

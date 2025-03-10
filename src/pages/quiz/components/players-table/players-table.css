@@ -1,0 +1,18 @@
+
+.players-table{
+    margin-top: 40px;
+    background-color: #212529;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #e4a617;
+    padding: 20px;
+    color: #ffc107;
+}
+
+.players-table table{
+    margin-top: 10px;
+}
+
+.user-name {
+  text-transform: capitalize;
+  color: #ffc107;
+}

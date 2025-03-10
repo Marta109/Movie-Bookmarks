@@ -1,6 +1,6 @@
 .start-screen {
   width: 550px;
-  height: 250px;
+  height: 300px;
   background-color: #212529;
   border-radius: 10px;
   border: 3px solid #ffc107;
@@ -19,8 +19,23 @@
   font-style: italic;
 }
 
+.userName {
+  margin-top: 40px;
+}
+.userName input {
+  background-color: #212529;
+  color: #ffc107;
+  text-transform: capitalize;
+}
+
+.userName span {
+  background-color: #2b3035;
+  color: #ffc107;
+  border-color: #e4a617;
+}
+
 @media (max-width: 420px) {
   .start-screen {
-    height: 280px;
+    height: 320px;
   }
 }
