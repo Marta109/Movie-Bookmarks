@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
+import { useSearchParams } from "react-router";
 import { AppContext } from "../../contexts/appContext";
 import getFlags from "../../utils/getFlags";
 import getRatedDetails from "../../utils/getRatedDetails";
-import UrlParams from "../../utils/urlParams/urlParams";
 import Button from "../button/button";
 import noImg from "../../assets/images/no-img.jpg";
 import "./bookmarkItem.css";
@@ -22,13 +22,13 @@ const BookmarkItem = ({ movie, modal, setFavorites }) => {
     Released,
   } = movie;
   const { state } = useContext(AppContext);
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isFavorite, setFavorite] = useState(
     state.favorites.some((m) => m.imdbID === imdbID)
   );
 
   const handleClick = () => {
-    UrlParams.addId(imdbID);
+    setSearchParams({ movieId: imdbID });
     modal(true);
   };
 

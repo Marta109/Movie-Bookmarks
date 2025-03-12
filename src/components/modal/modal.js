@@ -1,52 +1,48 @@
 import { useContext, useState, useEffect } from "react";
+import { useSearchParams } from "react-router";
 import { AppContext } from "../../contexts/appContext";
-import UrlParams from "../../utils/urlParams/urlParams";
 import Button from "../button/button";
 import FilmApi from "../../server/filmApi";
 import MovieDetails from "../movieDetails/movieDetails";
 import Spinner from "../spinner/spinner";
 import "./modal.css";
 
-const Modal = ({ showModal, setShowModal }) => {
-  const [movieID, setMovieID] = useState(null);
+const Modal = ({ setShowModal }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const movieID = searchParams.get("movieId");
   const [isOpen, setIsOpen] = useState(false);
   const [isFavorite, setFavorite] = useState(false);
   const [data, setData] = useState(null);
   const { state, setFavorites } = useContext(AppContext);
 
+  useEffect(() => {
+    if (movieID) {
+      setIsOpen(true);
+      FilmApi.getMovieById(movieID).then((data) => {
+        if (data.success) {
+          setData(data.data);
+          document.body.style.overflow = "hidden";
+          setFavorite(state.favorites.some((m) => m.imdbID === movieID));
+        } else {
+          console.error(data.message);
+          setShowModal(false);
+        }
+      });
+    } else {
+      setIsOpen(false);
+    }
+  }, [movieID, state.favorites, setShowModal]);
+
   const closeModal = () => {
     document.body.style.overflow = "";
-    UrlParams.removeId();
-    setIsOpen(false);
+    setSearchParams({});
     setShowModal(false);
     setData(null);
   };
 
-  useEffect(() => {
-    const movieId = UrlParams.getId();
-    setIsOpen(showModal);
-
-    if (movieId) {
-      setMovieID(movieId);
-      FilmApi.getMovieById(movieId).then((data) => {
-        if (data.success) {
-          setData(data.data);
-          document.body.style.overflow = "hidden";
-          setFavorite(state.favorites.some((m) => m.imdbID === movieId));
-        } else {
-          console.error(data.message);
-          closeModal();
-        }
-      });
-    } else {
-      closeModal();
-    }
-  }, [showModal, state.favorites]);
-
   const closeModalOnBackdropClick = (e) => {
     if (e.target.classList.contains("modal")) {
       closeModal();
-      setMovieID(null);
     }
   };
 
@@ -66,7 +62,7 @@ const Modal = ({ showModal, setShowModal }) => {
         tabIndex="-1"
         onClick={closeModalOnBackdropClick}
       >
-        <div className="modal-dialog  modal-dialog-scrollable">
+        <div className="modal-dialog modal-dialog-scrollable">
           <div className="modal-content">
             {!data ? (
               <Spinner />
@@ -76,7 +72,6 @@ const Modal = ({ showModal, setShowModal }) => {
                   <h4 className="modal-title">
                     {data.Title} ({data.Year})
                   </h4>
-
                   <button
                     type="button"
                     className="btn-close"

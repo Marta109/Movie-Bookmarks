@@ -1,12 +1,13 @@
 import { useContext } from "react";
+import { useSearchParams } from "react-router";
 import { AppContext } from "../../contexts/appContext";
-import UrlParams from "../../utils/urlParams/urlParams";
 import Button from "../button/button";
 import noImg from "../../assets/images/no-img.jpg";
 import "./card.css";
 
 const Card = ({ data, setShowModal }) => {
   const { state, setFavorites } = useContext(AppContext);
+  const [searchParams, setSearchParams] = useSearchParams();
   const { Poster, Title, Year, imdbID } = data;
 
   const isFavorite = state.favorites.some((movie) => movie.imdbID === imdbID);
@@ -18,7 +19,7 @@ const Card = ({ data, setShowModal }) => {
     ) {
       return;
     }
-    UrlParams.addId(imdbID);
+    setSearchParams({ movieId: imdbID });
     setShowModal(true);
   };
 

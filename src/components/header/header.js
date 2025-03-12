@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { NavLink, useNavigate, useSearchParams } from "react-router";
 import { AppContext } from "../../contexts/appContext";
-import { NavLink, useNavigate } from "react-router";
 import "./header.css";
 
 const Header = () => {
@@ -8,6 +8,15 @@ const Header = () => {
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const querySearch = searchParams.get("search");
+    if (querySearch) {
+      setSearch(querySearch);
+      searchHandler(querySearch);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
