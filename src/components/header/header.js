@@ -1,43 +1,27 @@
 import { useState, useContext } from "react";
 import { AppContext } from "../../contexts/appContext";
+import { NavLink, useNavigate } from "react-router";
 import "./header.css";
 
-const Header = ({ setCurrentPage }) => {
+const Header = () => {
   const { searchHandler } = useContext(AppContext);
   const [search, setSearch] = useState("");
-  const [activePage, setActivePage] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     searchHandler(search);
-    setCurrentPage("home");
-    setActivePage("home");
-  };
-
-  const handleClick = (page) => {
-    if (page !== activePage) {
-      setActivePage(page);
-      setCurrentPage(page);
-    }
-    const navbar = document.getElementById("navbarScroll");
-    if (navbar) {
-      navbar.classList.remove("show");
-    }
-    setMenuOpen(false);
+    navigate("/");
   };
 
   return (
     <div className="app-header">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a
-            className="navbar-brand"
-            href="#"
-            onClick={() => handleClick("home")}
-          >
+          <NavLink className="navbar-brand" to="/">
             Movie Bookmarks
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -53,38 +37,19 @@ const Header = ({ setCurrentPage }) => {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
               <li className="nav-item">
-                <a
-                  className={`nav-link ${
-                    activePage === "home" ? "active" : ""
-                  }`}
-                  aria-current="page"
-                  href="#"
-                  onClick={() => handleClick("home")}
-                >
+                <NavLink className="nav-link" aria-current="page" to="/">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a
-                  className={`nav-link ${
-                    activePage === "bookmarks" ? "active" : ""
-                  }`}
-                  href="#"
-                  onClick={() => handleClick("bookmarks")}
-                >
+                <NavLink className="nav-link" to="/bookmarks">
                   Bookmarks
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a
-                  className={`nav-link ${
-                    activePage === "quiz" ? "active" : ""
-                  }`}
-                  href="#"
-                  onClick={() => handleClick("quiz")}
-                >
+                <NavLink className="nav-link" to="/quiz">
                   Quiz
-                </a>
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex" role="search" onSubmit={handleSubmit}>

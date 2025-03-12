@@ -31,7 +31,7 @@ const PlayersTable = () => {
         <thead class="table-light">
           <tr>
             <th scope="col">Rating 🥇</th>
-            <th scope="col">UserName</th>
+            <th scope="col">User Name</th>
             <th scope="col">Points</th>
             <th scope="col">Time Used</th>
             <th scope="col">Answer</th>
