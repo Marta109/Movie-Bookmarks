@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/Movie-Bookmarks" element={<MainPage />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/*" element={<NotFound />} />

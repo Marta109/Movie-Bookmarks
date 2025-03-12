@@ -28,7 +28,7 @@ const Header = () => {
     <div className="app-header">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
+          <NavLink className="navbar-brand" to="/Movie-Bookmarks">
             Movie Bookmarks
           </NavLink>
           <button
@@ -46,7 +46,7 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
               <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/">
+                <NavLink className="nav-link" aria-current="page" to="/Movie-Bookmarks">
                   Home
                 </NavLink>
               </li>
