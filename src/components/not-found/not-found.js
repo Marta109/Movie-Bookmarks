@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import { AppContext } from "../../contexts/appContext";
-import { QuizContext } from "../../pages/quiz/context/quizContext";
+import { useNavigate } from "react-router";
 import Button from "../button/button";
 import notFound from "../../assets/images/notFound.webp";
 import "./not-found.css";
 
 const NotFound = ({ message }) => {
   const { state, dispatch } = useContext(AppContext);
+  const navigate = useNavigate();
+
   const handClick = () => {
     dispatch({ type: "SET_ERROR", payload: false });
     dispatch({ type: "SET_SEARCH", payload: "movie" });
+    navigate("/");
   };
   return (
     <ul className="not-found">
