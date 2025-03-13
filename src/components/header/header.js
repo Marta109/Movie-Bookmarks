@@ -46,7 +46,7 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
               <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/Movie-Bookmarks">
+                <NavLink className="nav-link" aria-current="page" to="/">
                   Home
                 </NavLink>
               </li>
