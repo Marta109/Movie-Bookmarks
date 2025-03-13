@@ -26,7 +26,7 @@ const PlayersTable = () => {
 
   return (
     <div className="players-table">
-      Top Players 🏆
+      Leaderboard 🏆
       <table className="table table-dark  table-striped table-bordered">
         <thead class="table-light">
           <tr>
