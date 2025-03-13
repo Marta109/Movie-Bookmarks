@@ -11,7 +11,7 @@ const NotFound = ({ message }) => {
 
   const handClick = () => {
     dispatch({ type: "SET_ERROR", payload: false });
-    dispatch({ type: "SET_SEARCH", payload: "movie" });
+    dispatch({ type: "SET_SEARCH", payload: "dark" });
     navigate("/");
   };
   return (

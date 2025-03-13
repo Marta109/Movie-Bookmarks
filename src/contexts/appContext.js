@@ -7,7 +7,7 @@ const initialState = {
   originalData: [],
   originalTotal: 0,
   data: [],
-  search: "movie",
+  search: "dark",
   currentPage: 1,
   error: false,
   total: null,
