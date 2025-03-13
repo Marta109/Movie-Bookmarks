@@ -28,7 +28,7 @@ const Header = () => {
     <div className="app-header">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/Movie-Bookmarks">
+          <NavLink className="navbar-brand" to="/">
             Movie Bookmarks
           </NavLink>
           <button
