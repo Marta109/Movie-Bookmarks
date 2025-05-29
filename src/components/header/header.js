@@ -1,82 +1,64 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { NavLink, useNavigate, useSearchParams } from "react-router";
 import { AppContext } from "../../contexts/appContext";
 import "./header.css";
 
-const Header = ({ setCurrentPage }) => {
+const Header = () => {
   const { searchHandler } = useContext(AppContext);
   const [search, setSearch] = useState("");
-  const [activePage, setActivePage] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const querySearch = searchParams.get("search");
+    if (querySearch) {
+      setSearch(querySearch);
+      searchHandler(querySearch);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     searchHandler(search);
-    setCurrentPage("home");
-    setActivePage("home");
-  };
-
-  const handleClick = (page) => {
-    if (page === activePage) return;
-    setActivePage(page);
-    setCurrentPage(page);
+    navigate(`/?search=${encodeURIComponent(search)}`);
   };
 
   return (
     <div className="app-header">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a
-            className="navbar-brand"
-            href="#"
-            onClick={() => handleClick("home")}
-          >
+          <NavLink className="navbar-brand" to="/">
             Movie Bookmarks
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarScroll"
             aria-controls="navbarScroll"
-            aria-expanded="false"
+            aria-expanded={menuOpen}
             aria-label="Toggle navigation"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
               <li className="nav-item">
-                <a
-                  className={`nav-link ${
-                    activePage === "home" ? "active" : ""
-                  }`}
-                  aria-current="page"
-                  href="#"
-                  onClick={() => handleClick("home")}
-                >
+                <NavLink className="nav-link" aria-current="page" to="/">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a
-                  className={`nav-link ${
-                    activePage === "bookmarks" ? "active" : ""
-                  }`}
-                  href="#"
-                  onClick={() => handleClick("bookmarks")}
-                >
+                <NavLink className="nav-link" to="/bookmarks">
                   Bookmarks
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a
-                  className={`nav-link ${
-                    activePage === "quiz" ? "active" : ""
-                  }`}
-                  href="#"
-                  onClick={() => handleClick("quiz")}
-                >
+                <NavLink className="nav-link" to="/quiz">
                   Quiz
-                </a>
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex" role="search" onSubmit={handleSubmit}>

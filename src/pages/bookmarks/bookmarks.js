@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import { AppContext } from "../../contexts/appContext";
 import BookmarkItem from "../../components/bookmarkItem/bookmarkItem";
 import Modal from "../../components/modal/modal";
@@ -6,8 +7,14 @@ import notFound from "../../assets/images/notFound.webp";
 import "./bookmarks.css";
 
 const Bookmarks = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const { state, setFavorites } = useContext(AppContext);
+  
+  useEffect(() => {
+    const movieID = searchParams.get("movieId");
+    if (movieID) setShowModal(true);
+  }, []);
 
   return (
     <div className="bookmarks">

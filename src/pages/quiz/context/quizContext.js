@@ -9,6 +9,8 @@ const initialState = {
   questions: [],
   maxPossiblePoints: 0,
   secondsRemaining: null,
+  userName: "user",
+  time: 0,
 };
 
 function reducer(state, action) {
@@ -32,6 +34,7 @@ function reducer(state, action) {
     case "START":
       return {
         ...state,
+        userName: action.payload,
         status: "active",
         secondsRemaining: state.questions.length * 30,
       };
@@ -63,6 +66,9 @@ function reducer(state, action) {
     case "FINISH":
       return {
         ...state,
+        time: `${Math.floor(state.secondsRemaining / 60)} : ${
+          state.secondsRemaining % 60
+        }`,
         status: "finished",
       };
     case "TICK":
@@ -90,7 +96,6 @@ export function QuizProvider({ children }) {
       }
     });
   }, [dispatch]);
-
 
   return (
     <QuizContext.Provider

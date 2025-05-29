@@ -57,10 +57,21 @@ const getFlags = (str = "") => {
     Denmark: "https://flagcdn.com/w320/dk.png",
     Sweden: "https://flagcdn.com/w320/se.png",
     Norway: " https://flagcdn.com/w320/no.png",
-    "Israel": "https://flagcdn.com/w320/il.png",
+    Israel: "https://flagcdn.com/w320/il.png",
     Palestine: "https://flagcdn.com/w320/ps.png",
     Jordan: "https://flagcdn.com/w320/jo.png",
-
+    Hungary: "https://flagcdn.com/w320/hu.png",
+    Liechtenstein: "https://flagcdn.com/w320/li.png",
+    Switzerland: "https://flagcdn.com/w320/ch.png",
+    Belgium: "https://flagcdn.com/w320/be.png",
+    "Hong Kong": "https://flagcdn.com/w320/hk.png",
+    Macao: "https://flagcdn.com/w320/mo.png",
+    "Republic of Korea": "https://flagcdn.com/w320/kr.png",
+    Taiwan: "https://flagcdn.com/w320/tw.png",
+    Cambodia: "https://flagcdn.com/w320/kh.png",
+    Laos: "https://flagcdn.com/w320/la.png",
+    Thailand: "https://flagcdn.com/w320/th.png",
+    Vietnam: "https://flagcdn.com/w320/vn.png",
   };
 
   return str.split(",").map((country, index) => {
