@@ -4,7 +4,7 @@
 
 ### 🔗 Links
 
-- **Live Demo:**(https://marta109.github.io/Movie-Bookmarks)
+- [Live Demo](https://marta109.github.io/Movie-Bookmarks)
 
 ## 🌟 Key Features
 
