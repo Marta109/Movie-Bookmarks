@@ -9,13 +9,11 @@
 ## 🌟 Key Features
 
 ### 🎥 Movie Discovery
-- Search across 500,000+ titles
-- Detailed movie pages:
-  - Ratings and reviews
-  - Cast information
-  - Trailers and posters
+   - 🔍 Movie search and detailed information viewing
+   - 📌 Save your favorite movies to bookmarks
+   - 🧠 Quiz section — questions about movies, actors, and genres
+   - 📦 Uses external API to fetch movie information
  
- --
  ### 🖼️ Screenshots
  ![Screenshot_8](https://github.com/user-attachments/assets/9499b693-9f85-49c0-abec-4e36e50acfab)
 ![Screenshot_7](https://github.com/user-attachments/assets/98bcdbab-1d0e-40fc-8b04-5936180154f1)
